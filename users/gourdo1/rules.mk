@@ -1,22 +1,31 @@
-LTO_ENABLE = yes               # link time optimization -- achieves a smaller compiled size
-CONSOLE_ENABLE = no
-COMMAND_ENABLE = no
-MOUSEKEY_ENABLE = yes
+SRC += gourdo1.c
+SRC += autocorrect/autocorrection.c
 
-VIA_ENABLE = yes
-TAP_DANCE_ENABLE = no
-BOOTMAGIC_ENABLE = yes         # Enable Bootmagic Lite
-CAPS_WORD_ENABLE = yes         # Enable built-in Caps Word functionality
-
-TD_LSFT_CAPSLOCK_ENABLE = yes
-IDLE_TIMEOUT_ENABLE = yes
-STARTUP_NUMLOCK_ON = yes
-ENCODER_DEFAULTACTIONS_ENABLE = no
-
-COLEMAK_LAYER_ENABLE = yes     # Enable Colemak layer / set to no to disable
-INVERT_NUMLOCK_INDICATOR = yes
-
-GAME_ENABLE ?= yes             # Enable Paddle Game / set to no to disable
-ifeq ($(strip $(GAME_ENABLE)), yes)
-    OPT_DEFS += -DGAME_ENABLE
+ifdef ENCODER_ENABLE
+	# include encoder related code when enabled
+	ifeq ($(strip $(ENCODER_DEFAULTACTIONS_ENABLE)), yes)
+		OPT_DEFS += -DENCODER_DEFAULTACTIONS_ENABLE
+	endif
+	ifeq ($(strip $(ALTTAB_SCROLL_ENABLE)), yes)
+		OPT_DEFS += -DALTTAB_SCROLL_ENABLE
+	endif
+	SRC += gourdo1_encoder.c
+endif
+ifeq ($(strip $(TD_LSFT_CAPSLOCK_ENABLE)), yes)
+    OPT_DEFS += -DTD_LSFT_CAPSLOCK_ENABLE
+endif
+ifeq ($(strip $(IDLE_TIMEOUT_ENABLE)), yes)
+    OPT_DEFS += -DIDLE_TIMEOUT_ENABLE
+endif
+ifeq ($(strip $(STARTUP_NUMLOCK_ON)), yes)
+    OPT_DEFS += -DSTARTUP_NUMLOCK_ON
+endif
+ifeq ($(strip $(COLEMAK_LAYER_ENABLE)), yes)
+    OPT_DEFS += -DCOLEMAK_LAYER_ENABLE
+endif
+ifeq ($(strip $(EMOTICON_ENABLE)), yes)
+    OPT_DEFS += -DEMOTICON_ENABLE
+endif
+ifeq ($(strip $(INVERT_NUMLOCK_INDICATOR)), yes)
+    OPT_DEFS += -DINVERT_NUMLOCK_INDICATOR
 endif
