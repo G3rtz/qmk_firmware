@@ -42,9 +42,12 @@ enum custom_user_layers {
 #define SWAP_L SGUI(KC_LEFT)                 // Swap application to left display
 #define SWAP_R SGUI(KC_RGHT)                 // Swap application to right display
 
+
+
+
 // KEYCODES
 enum custom_user_keycodes {
-    KC_00 = SAFE_RANGE,
+        KC_00 = SAFE_RANGE,
         ENCFUNC,       // Encoder function
         CAPSNUM,       // Capslock key function
         LEFTOFENC,     // Key to the left of the encoder (i.e. F13)
@@ -80,7 +83,10 @@ enum custom_user_keycodes {
         EMO_TEARS,     // (T_T)
 
         KC_TSTOG,      // Tab Scroll Toggle
-
+        SOCD_W,
+        SOCD_A,
+        SOCD_S,
+        SOCD_D,
         NEW_SAFE_RANGE // New safe range for keymap level custom keycodes
 };
 
@@ -98,6 +104,7 @@ typedef union {
     bool     disable_space_mods :1;
     bool     autocorrect :1;
     bool     rgb_english_caps :1;
+
   };
 } user_config_t;
 

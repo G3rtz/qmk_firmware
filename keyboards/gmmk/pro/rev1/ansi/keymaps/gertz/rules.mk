@@ -4,7 +4,7 @@ COMMAND_ENABLE = no
 BOOTMAGIC_ENABLE = yes         # Enable Bootmagic Lite
 VIA_ENABLE = yes
 
-MOUSEKEY_ENABLE = no
+MOUSEKEY_ENABLE = yes
 TAP_DANCE_ENABLE = no
 CAPS_WORD_ENABLE = yes         # Enable built-in Caps Word functionality
 IDLE_TIMEOUT_ENABLE = yes

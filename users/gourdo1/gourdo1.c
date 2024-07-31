@@ -23,9 +23,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "autocorrect/autocorrection.h"
 
+
+bool w_down = false;
+bool a_down = false;
+bool s_down = false;
+bool d_down = false;
+
+
 // RGB NIGHT MODE
 #ifdef RGB_MATRIX_ENABLE
 static bool rgb_nightmode = false;
+
 
 // Turn on/off NUM LOCK if current state is different
 void activate_rgb_nightmode(bool turn_on) {
@@ -245,6 +253,77 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
             user_config.rgb_english_caps ^= 1; // Toggles the status
             eeconfig_update_user(user_config.raw); // Writes the new status to EEPROM
         }
+        break;
+    case SOCD_W:
+        if (record->event.pressed) {
+            if (s_down) {
+                unregister_code(KC_S);
+            }
+            register_code(KC_W);
+            w_down = true;
+        } else {
+            unregister_code(KC_W);
+            w_down = false;
+
+            if (s_down) {
+                register_code(KC_S);
+            }
+
+        }
+        return false;
+        break;
+    case SOCD_A:
+        if (record->event.pressed) {
+            if (d_down) {
+                unregister_code(KC_D);
+            }
+            register_code(KC_A);
+            a_down = true;
+        } else {
+            unregister_code(KC_A);
+            a_down = false;
+
+            if (d_down) {
+                register_code(KC_D);
+            }
+
+        }
+        return false;
+        break;
+    case SOCD_S:
+        if (record->event.pressed) {
+            if (w_down) {
+                unregister_code(KC_W);
+            }
+            register_code(KC_S);
+            s_down = true;
+        } else {
+            unregister_code(KC_S);
+            s_down = false;
+
+            if (w_down) {
+                register_code(KC_W);
+            }
+
+        }
+        return false;
+        break;
+    case SOCD_D:
+        if (record->event.pressed) {
+            if (a_down) {
+                unregister_code(KC_A);
+            }
+            register_code(KC_D);
+            d_down = true;
+        } else {
+            unregister_code(KC_D);
+            d_down = false;
+
+            if (a_down) {
+                register_code(KC_A);
+            }
+        }
+        return false;
         break;
         //return false;
 
