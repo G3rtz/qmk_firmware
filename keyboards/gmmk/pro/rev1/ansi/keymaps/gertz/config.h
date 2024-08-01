@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define FORCE_NKRO
 
 // Set keyboard debounce time (originally 5ms, now 8ms to combat touchy switches)
-#define DEBOUNCE 8
+#define DEBOUNCE 5
 
 // Set TT to two taps
 #define TAPPING_TOGGLE 2

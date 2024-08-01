@@ -24,11 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum custom_user_layers {
     _BASE,
     _FN1,
-    _MAC_NORMAL,
-    _MOUSEKEY,
-    #ifdef GAME_ENABLE
-    _GAME
-    #endif //GAME_ENABLE
+    _NUMPADMOUSE,
+    _MAC_FN1,
+    _MAC_BASE
+
 };
 
 #define KC_CAD LALT(LCTL(KC_DEL))
@@ -68,12 +67,6 @@ enum custom_user_keycodes {
         TG_SPCMOD,     // Toggle disabling of modded-SPACE functions
         TG_AUTOCR,     // Toggle AutoCorrect
         TG_ENGCAP,     // Toggle highlighting Non-English letters during CAPSLOCK on ISO boards
-
-        YAHOO,         // yahoo.com
-        OUTLOOK,       // outlook.com
-        GMAIL,         // gmail.com
-        HOTMAIL,       // hotmail.com
-        DOTCOM,        // .com
 
         EMO_SHRUG,     // `\_("/)_/`
         EMO_CONFUSE,   // (*_*)

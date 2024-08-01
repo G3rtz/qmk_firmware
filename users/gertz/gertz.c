@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
-#include "gourdo1.h"
+#include "gertz.h"
 
 #include "custom_double_taps.h"
 
@@ -121,7 +121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
     case PRNCONF:  // Print verbose status of all user_config toggles (open a text editor before engaging!!)
         if (record->event.pressed) {
             send_string("\n"SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)"#########");
-            send_string(" gourdo1" SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_3)SS_TAP(X_KP_9))"s GMMK Pro User Settings ");
+            send_string(" Gertz" SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_3)SS_TAP(X_KP_9))"s GMMK Pro User Settings ");
             send_string("#########"SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)SS_TAP(X_KP_MINUS)"\n");
             send_string("Hold "SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_9)SS_TAP(X_KP_1))"Fn"SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_9)SS_TAP(X_KP_3))" and the number corresponding to a setting below to toggle.\n");
             send_string("Re"SS_TAP(X_KP_MINUS)"print this screen with "SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_9)SS_TAP(X_KP_1))"Fn" SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_9)SS_TAP(X_KP_3)) SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_9)SS_TAP(X_KP_1))"`" SS_LALT(SS_TAP(X_KP_0)SS_TAP(X_KP_0)SS_TAP(X_KP_9)SS_TAP(X_KP_3))" to see your changes reflected.\n");
